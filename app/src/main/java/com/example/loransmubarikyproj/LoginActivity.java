@@ -21,6 +21,7 @@ public class LoginActivity extends AppCompatActivity {
 EditText emailEditText;
 EditText passwordEditText;
  Button loginButton;
+ TextView error;
 TextView newAccountButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +30,9 @@ TextView newAccountButton;
         emailEditText=findViewById(R.id.ETEmail);
         passwordEditText=findViewById(R.id.ETPassword);
         loginButton=findViewById(R.id.BTMLogin);
-        newAccountButton=findViewById(R.id.BTRegister);
+        error = findViewById(R.id.TVError);
+        error.setVisibility(View.GONE);
+        newAccountButton=findViewById(R.id.GoToSignUp);
         newAccountButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -39,7 +42,6 @@ TextView newAccountButton;
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 final FirebaseAuth mAuth = FirebaseAuth.getInstance();
                 mAuth.signInWithEmailAndPassword(emailEditText.getText().toString(), passwordEditText.getText().toString())
                         .addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
@@ -47,11 +49,10 @@ TextView newAccountButton;
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()) {
                                     FirebaseUser user = mAuth.getCurrentUser();
-
                                     startActivity(new Intent(LoginActivity.this,MainActivity.class));
 
                                 } else {
-
+                                    error.setVisibility(View.VISIBLE);
                                     Log.d("error","erro");
 
                                 }

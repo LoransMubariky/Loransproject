@@ -11,11 +11,16 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.ktx.Firebase;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+    TextView username,email;
 
     private DrawerLayout drawerLayout;
 
@@ -26,6 +31,17 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         Toolbar toolbar = findViewById(R.id.toolbar); //Ignore red line errors
         setSupportActionBar(toolbar);
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if(user!=null){
+            username = findViewById(R.id.usernameheader);
+            email = findViewById(R.id.emailheader);
+            username.setText(user.getDisplayName());
+            email.setText(user.getEmail());
+        }
+        else {
+            Intent i = new Intent(MainActivity.this,LoginActivity.class);
+            startActivity(i);
+        }
 
         drawerLayout = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
@@ -41,7 +57,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             navigationView.setCheckedItem(R.id.nav_home);
         }
     }
+    @Override
+    protected void onResume() {
 
+        super.onResume();
+
+    }
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         if(R.id.nav_home==item.getItemId()){
