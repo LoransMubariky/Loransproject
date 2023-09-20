@@ -7,7 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
-
+import android.view.View;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     private DrawerLayout drawerLayout;
 
+    FirebaseAuth fauth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,10 +32,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         Toolbar toolbar = findViewById(R.id.toolbar); //Ignore red line errors
         setSupportActionBar(toolbar);
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        fauth=FirebaseAuth.getInstance();
+
+        drawerLayout = findViewById(R.id.drawer_layout);
+        NavigationView navigationView = findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
+        FirebaseUser user = fauth.getCurrentUser();
         if(user!=null){
-            username = findViewById(R.id.usernameheader);
-            email = findViewById(R.id.emailheader);
+            View header = navigationView.getHeaderView(0);
+            username = header.findViewById(R.id.usernameheader);
+            email = header.findViewById(R.id.emailheader);
             username.setText(user.getDisplayName());
             email.setText(user.getEmail());
         }
@@ -42,10 +49,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             Intent i = new Intent(MainActivity.this,LoginActivity.class);
             startActivity(i);
         }
-
-        drawerLayout = findViewById(R.id.drawer_layout);
-        NavigationView navigationView = findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
 
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.open_nav,
                 R.string.close_nav);
@@ -79,6 +82,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new ProuductFragment()).commit();
         }
         else if(R.id.nav_logout==item.getItemId()){
+            fauth.signOut();
             startActivity(new Intent(this,LoginActivity.class));
             Toast.makeText(this, "Logout!", Toast.LENGTH_SHORT).show();
         }

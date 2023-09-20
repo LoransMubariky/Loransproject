@@ -19,7 +19,7 @@
     <EditText
         android:id="@+id/ETPassword"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
         android:layout_marginStart="50dp"
         android:layout_marginTop="9dp"
         android:layout_marginEnd="50dp"
@@ -33,7 +33,7 @@
     <EditText
         android:id="@+id/ETEmail"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
         android:layout_marginStart="50dp"
         android:layout_marginTop="70dp"
         android:layout_marginEnd="50dp"
@@ -45,7 +45,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/GoToSignUp"
         android:layout_width="150dp"
         android:layout_height="47dp"
         android:layout_marginTop="93dp"
