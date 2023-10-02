@@ -1,4 +1,4 @@
-package com.example.loransmubarikyproj.DataBase.;
+package com.example.loransmubarikyproj.DataBase;
 
 import android.provider.BaseColumns;
 

@@ -1,6 +1,9 @@
-package com.example.loransmubarikyproj;
+package com.example.loransmubarikyproj.Class;
 
-public class Product implements SqlQuery {
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+
+public class Product implements SqlInterface {
     protected String pid;
     protected String prouductname;
     protected String prouductdisc;
@@ -76,18 +79,24 @@ public class Product implements SqlQuery {
         this.buyprice = buyprice;
     }
 
+
     @Override
-    public boolean Add() {
-        return false;
+    public long Add(SQLiteDatabase db) {
+        return 0;
     }
 
     @Override
-    public boolean Delete() {
-        return false;
+    public int Delete(SQLiteDatabase db, int id) {
+        return 0;
     }
 
     @Override
-    public boolean Update() {
-        return false;
+    public int Update(SQLiteDatabase db, int id) {
+        return 0;
+    }
+
+    @Override
+    public Cursor Select(SQLiteDatabase db) {
+        return null;
     }
 }
