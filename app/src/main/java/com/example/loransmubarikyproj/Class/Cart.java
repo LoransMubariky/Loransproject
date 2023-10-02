@@ -1,6 +1,6 @@
 package com.example.loransmubarikyproj.Class;
 
-import static com.example.haifaproject2.DataTables.TablesString.CartTable.*;
+import static com.example.loransmubarikyproj.DataBase.TablesString.CartTable.*;
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
