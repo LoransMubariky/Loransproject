@@ -1,5 +1,5 @@
 package com.example.loransmubarikyproj.DataBase;
-import com.example.loransmubarikyproj.DataBase.DBHelper;
+import com.example.loransmubarikyproj.DataBase.TablesString.*;
 public class QueryString {
 
 
@@ -17,16 +17,14 @@ public class QueryString {
     public static final String SQL_CREATE_CART =
             "CREATE TABLE " + CartTable.TABLE_CART + " (" +
                     CartTable._ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
-                    CartTable.COLUMN_PRODUCT_ID + " TEXT," +
+                    CartTable.COLUMN_PRODUCT_ID + " INTEGER," +
                     CartTable.COLUMN_USER_ID + " TEXT);";
 
     public static final String SQL_CREATE_SALE =
             "CREATE TABLE " + SaleTable.TABLE_SALE + " (" +
                     SaleTable._ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
                     SaleTable.COLUMN_SALE_PROD_ID + " INTEGER," +
-                    SaleTable.COLUMN_SALE_USER_ID + " TEXT,"+
-                    SaleTable.COLUMN_SALE_PRICE + " DOUBLE,"+
-                    SaleTable.COLUMN_BUY_PRICE + " DOUBLE);";
+                    SaleTable.COLUMN_SALE_USER_ID + " TEXT);";
 
     //endregions
 

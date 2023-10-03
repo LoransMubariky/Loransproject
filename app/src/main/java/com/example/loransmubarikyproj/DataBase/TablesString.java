@@ -12,7 +12,7 @@ public class TablesString {
         public static final String COLUMN_PRODUCT_NAME = "ProductName";
         public static final String COLUMN_PRODUCT_DESCRIPTION = "Description";
         public static final String COLUMN_PRODUCT_IMAGE = "ProductImage";
-        public static final String COLUMN_PRODUCT_STOCK = "Stock";
+        public static final String COLUMN_PRODUCT_COLOR = "color";
         public static final String COLUMN_PRODUCT_SALEPRICE = "SalePrice";
         public static final String COLUMN_PRODUCT_BUYPRICE = "BuyPrice";
 
@@ -33,8 +33,6 @@ public class TablesString {
         public static final String TABLE_SALE = "SALE";
         public static final String COLUMN_SALE_PROD_ID = "PID";
         public static final String COLUMN_SALE_USER_ID = "UID";
-        public static final String COLUMN_SALE_PRICE = "SalePrice";
-        public static final String COLUMN_BUY_PRICE = "BuyPrice";
     }
     //endregion
 }
