@@ -1,7 +1,8 @@
 package com.example.loransmubarikyproj.DataBase;
 
-import static com.example.loransmubarikyproj.DataBase.QueryString.*;
-import static com.example.loransmubarikyproj.DataBase.TablesString.ProductTable.*;
+import static com.example.haifaproject2.DataTables.QueryString.*;
+import static com.example.haifaproject2.DataTables.TablesString.ProductTable.*;
+import static com.example.loransmubarikyproj.DataBase.QueryString.SQL_DELETE_PRODUCT;
 
 import android.annotation.SuppressLint;
 import android.content.ContentResolver;

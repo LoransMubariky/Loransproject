@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1030925805725",
+    "project_id": "loransmubarikyproj",
+    "storage_bucket": "loransmubarikyproj.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1030925805725:android:2d954243f1a9a6dde5cc74",
+        "android_client_info": {
+          "package_name": "com.example.loransmubarikyproj"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDROUhvo2_QijVRh_qdzJi9mjkfBQa1b4Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

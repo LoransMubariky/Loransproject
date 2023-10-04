@@ -9,7 +9,7 @@ public class QueryString {
                     ProductTable._ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
                     ProductTable.COLUMN_PRODUCT_NAME + " TEXT," +
                     ProductTable.COLUMN_PRODUCT_DESCRIPTION + " TEXT," +
-                    ProductTable.COLUMN_PRODUCT_STOCK + " INTEGER," +
+                    ProductTable.COLUMN_PRODUCT_COLOR + " INTEGER," +
                     ProductTable.COLUMN_PRODUCT_SALEPRICE + " DOUBLE,"+
                     ProductTable.COLUMN_PRODUCT_BUYPRICE + " DOUBLE,"+
                     ProductTable.COLUMN_PRODUCT_IMAGE + " BLOB);";
