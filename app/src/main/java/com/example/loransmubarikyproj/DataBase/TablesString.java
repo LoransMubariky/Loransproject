@@ -15,7 +15,7 @@ public class TablesString {
         public static final String COLUMN_PRODUCT_COLOR = "color";
         public static final String COLUMN_PRODUCT_SALEPRICE = "SalePrice";
         public static final String COLUMN_PRODUCT_BUYPRICE = "BuyPrice";
-        public static final String COLUMN_PRODUCT_DATE = "date";
+
 
     }
     //endregion
@@ -39,6 +39,8 @@ public class TablesString {
         public static final String TABLE_TIMEBID = "TIMEBID";
         public static final String COLUMN_SALE_PROD_ID = "PID";
         public static final String COLUMN_SALE_USER_ID = "UID";
+        public static final String COLUMN_PRODUCT_DATE = "date";
+        public static final String COLUMN_PRODUCT_TIME = "time";
     }
 
     //endregion

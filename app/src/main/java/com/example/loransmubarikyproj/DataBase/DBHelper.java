@@ -1,23 +1,12 @@
 package com.example.loransmubarikyproj.DataBase;
 
-import static com.example.haifaproject2.DataTables.QueryString.*;
-import static com.example.haifaproject2.DataTables.TablesString.ProductTable.*;
-import static com.example.loransmubarikyproj.DataBase.QueryString.SQL_DELETE_PRODUCT;
+import static com.example.loransmubarikyproj.DataBase.QueryString.*;
 
-import android.annotation.SuppressLint;
-import android.content.ContentResolver;
-import android.content.ContentValues;
+
 import android.content.Context;
-import android.database.CharArrayBuffer;
-import android.database.ContentObserver;
-import android.database.Cursor;
-import android.database.DataSetObserver;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.net.Uri;
-import android.os.Bundle;
-import android.provider.BaseColumns;
 
 public  class DBHelper {
     private static final String DATABASE_NAME = "MyProject.db";
@@ -39,7 +28,7 @@ public  class DBHelper {
 
         @Override
         public void onCreate(SQLiteDatabase sqLiteDatabase) {
-            //sqLiteDatabase.execSQL(SQL_CREATE_PRODUCT);
+            sqLiteDatabase.execSQL(SQL_CREATE_PRODUCT);
 
         }
 

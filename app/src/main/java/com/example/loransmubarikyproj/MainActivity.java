@@ -14,10 +14,14 @@ import android.view.MenuItem;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.loransmubarikyproj.Admin.AddProduct;
+import com.example.loransmubarikyproj.User.CartFragment;
+import com.example.loransmubarikyproj.User.HomeFragment;
+import com.example.loransmubarikyproj.User.InfoFragment;
+import com.example.loransmubarikyproj.User.ProuductFragment;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.ktx.Firebase;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     TextView username,email;
@@ -46,7 +50,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             email.setText(user.getEmail());
         }
         else {
-            Intent i = new Intent(MainActivity.this,LoginActivity.class);
+            Intent i = new Intent(MainActivity.this, AddProduct.class);
             startActivity(i);
         }
 

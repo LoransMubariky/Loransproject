@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/constraint"
-    tools:context=".Admin.AddProductActivity">
+    tools:context=".Admin.AddProduct">
 
     <ImageButton
         android:id="@+id/imageButton"
@@ -15,7 +15,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/baseline_camera_alt_24" />
+        app:srcCompat="@drawable/baseline_child_care_24" />
 
     <EditText
         android:id="@+id/etProdName"
@@ -44,30 +44,17 @@
         app:layout_constraintTop_toBottomOf="@+id/etProdName" />
 
     <EditText
-        android:id="@+id/etStock"
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:layout_marginTop="8dp"
-        android:ems="10"
-        android:inputType="numberDecimal"
-        android:hint="Stock"
-        android:textAlignment="center"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etDesc" />
-
-    <EditText
         android:id="@+id/etSalePrice"
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:layout_marginTop="43dp"
+        android:layout_marginTop="30dp"
         android:ems="10"
         android:hint="Sale Price"
-        android:textAlignment="center"
         android:inputType="numberDecimal"
+        android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etStock" />
+        app:layout_constraintTop_toBottomOf="@+id/etColor" />
 
     <EditText
         android:id="@+id/etBuyPrice"
@@ -85,7 +72,7 @@
     <Button
         android:id="@+id/addButton"
         android:layout_width="140dp"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
         android:layout_marginTop="66dp"
         android:text="add"
         android:textColor="#fff"
@@ -94,18 +81,20 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etBuyPrice" />
 
-    <ProgressBar
-        android:id="@+id/addItemProgressBar"
-        style="?android:attr/progressBarStyle"
-        android:layout_width="wrap_content"
+
+    <EditText
+        android:id="@+id/etColor"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:visibility="gone"
+        android:layout_marginTop="24dp"
+        android:ems="10"
+        android:hint="color"
+        android:textAlignment="center"
+        android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etBuyPrice" />
-
-
+        app:layout_constraintTop_toBottomOf="@+id/etDesc" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

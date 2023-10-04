@@ -1,6 +1,7 @@
 package com.example.loransmubarikyproj.Admin;
 
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
@@ -10,52 +11,46 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.ImageView;
-import android.widget.ProgressBar;
 import android.widget.Toast;
-import com.example.loransmubarikyproj.Classes.Product;
+
 import com.example.loransmubarikyproj.DataBase.DBHelper;
 import com.example.loransmubarikyproj.R;
+
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 
-public class AddProductActivity extends AppCompatActivity implements View.OnClickListener {
+public class AddProduct extends AppCompatActivity implements View.OnClickListener{
 
     private static int RESULT_LOAD_IMAGE = 1;
-    EditText etname,etdisc,etstock,etsaleprice,etbuyprice;
+    EditText etname,etdisc,etcolor,etsaleprice,etbuyprice;
     ImageButton imageButton;
     Button btadd;
-    Product p;
+    com.example.loransmubarikyproj.Classes.Product p;
     Uri selectedImageUri;
     DBHelper dbHelper;
-    ProgressBar addItemProgressBar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_product);
         etname = findViewById(R.id.etProdName);
         etdisc = findViewById(R.id.etDesc);
-        etstock = findViewById(R.id.etStock);
+        etcolor = findViewById(R.id.etColor);
         etsaleprice = findViewById(R.id.etSalePrice);
         etbuyprice = findViewById(R.id.etBuyPrice);
         imageButton = findViewById(R.id.imageButton);
         btadd = findViewById(R.id.addButton);
         btadd.setOnClickListener(this);
         imageButton.setOnClickListener(this);
-        addItemProgressBar=findViewById(R.id.addItemProgressBar);
         dbHelper = new DBHelper(this);
-        dbHelper.OpenWriteAble();
 
     }
     @Override
     public void onClick(View view) {
         if(view.getId()==R.id.addButton){
-            addItemProgressBar.setVisibility(View.VISIBLE);
-            dbHelper = new DBHelper(this);
 
             byte[] data  = imageViewToByte();
-            p=new Product(etname.getText().toString(),etdisc.getText().toString(),
-                    Integer.parseInt(etstock.getText().toString()),
+            p=new com.example.loransmubarikyproj.Classes.Product(etname.getText().toString(),etdisc.getText().toString(),
+                    etcolor.getText().toString(),
                     Double.parseDouble(etsaleprice.getText().toString()),
                     Double.parseDouble(etbuyprice.getText().toString()),data);
             dbHelper.OpenWriteAble();

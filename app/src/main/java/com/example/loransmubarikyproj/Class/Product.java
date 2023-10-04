@@ -11,6 +11,7 @@ import android.provider.BaseColumns;
 
 import com.example.loransmubarikyproj.Class.SqlInterface;
 
+import java.sql.Date;
 import java.sql.Time;
 
 public class Product implements SqlInterface {
@@ -19,24 +20,23 @@ public class Product implements SqlInterface {
     protected int pid;
     protected String prodname;
     protected String proddisc;
+
     protected String color;
     protected double saleprice;
     protected double buyprice;
     protected byte[] imageByte;
-    protected Time date;
-
 
     //endregion
 
     //region Constructors
-    public Product(String prodname,String proddisc,String color ,double saleprice,double buyprice,byte[] image, Time date){
+    public Product(String prodname,String proddisc,String color ,double saleprice,double buyprice,byte[] image){
         this.saleprice=saleprice;
         this.buyprice=buyprice;
         this.prodname=prodname;
         this.proddisc=proddisc;
         this.color=color;
         this.imageByte = image;
-        this.date=date;
+
     }
     //endregion
 
@@ -51,7 +51,8 @@ public class Product implements SqlInterface {
         values.put(COLUMN_PRODUCT_SALEPRICE, saleprice);
         values.put(COLUMN_PRODUCT_COLOR, color);
         values.put(COLUMN_PRODUCT_IMAGE, imageByte);
-        values.put(COLUMN_PRODUCT_Date, date);
+
+
 
 // Insert the new row, returning the primary key value of the new row
         return db.insert(TABLE_PRODUCT, null, values);
@@ -78,7 +79,6 @@ public class Product implements SqlInterface {
         values.put(COLUMN_PRODUCT_SALEPRICE, saleprice);
         values.put(COLUMN_PRODUCT_COLOR, color);
         values.put(COLUMN_PRODUCT_IMAGE, imageByte.toString());
-        values.put(COLUMN_PRODUCT_Date, date);
 // Which row to update, based on the title
         String selection = BaseColumns._ID + " LIKE ?";
         String[] selectionArgs = { id+"" };
@@ -101,7 +101,6 @@ public class Product implements SqlInterface {
                 COLUMN_PRODUCT_COLOR,
                 COLUMN_PRODUCT_SALEPRICE,
                 COLUMN_PRODUCT_BUYPRICE,
-                COLUMN_PRODUCT_DATE,
         };
 // How you want the results sorted in the resulting Cursor
         String sortOrder =
@@ -166,13 +165,22 @@ public class Product implements SqlInterface {
     public void setBuyprice(double buyprice) {
         this.buyprice = buyprice;
     }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    public byte[] getImageByte() {
+        return imageByte;
+    }
+
+    public void setImageByte(byte[] imageByte) {
+        this.imageByte = imageByte;
+    }
+
     //endregion
-
-    public double getDate() {
-        return date;
-    }
-    public void setDate(Time date) {
-        this.date = date;
-    }
-
 }
