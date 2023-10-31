@@ -6,7 +6,29 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".SignupActivity">
-
+  <Switch android:layout_height="48dp"
+      android:layout_width="wrap_content"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintEnd_toStartOf="@+id/etAdminCode"
+      android:textOn="Yes"
+      android:textOff="No"
+      android:text="Admin"
+      android:layout_marginEnd="24dp"
+      android:layout_marginTop="40dp"
+      android:layout_marginStart="32dp"
+      android:id="@+id/SwAdmin"/>
+  <EditText android:layout_height="48dp"
+      android:layout_width="121dp"
+      app:layout_constraintTop_toTopOf="parent"
+      android:layout_marginEnd="70dp"
+      android:layout_marginTop="40dp"
+      android:id="@+id/etAdminCode"
+      app:layout_constraintEnd_toEndOf="parent"
+      android:visibility="visible"
+      android:inputType="number"
+      android:hint="admin code"
+      android:ems="10"/>
   <EditText
       android:id="@+id/ETFullName"
       android:layout_width="wrap_content"

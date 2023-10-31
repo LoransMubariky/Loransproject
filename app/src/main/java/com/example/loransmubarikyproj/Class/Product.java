@@ -1,5 +1,4 @@
-package com.example.loransmubarikyproj.Classes;
-
+package com.example.loransmubarikyproj.Class;
 import static com.example.loransmubarikyproj.DataBase.TablesString.ProductTable.*;
 
 
@@ -28,6 +27,17 @@ public class Product implements SqlInterface {
 
     //endregion
 
+    public Product(){
+
+    }
+    public Product(Product p){
+        this.saleprice=p.getSaleprice();
+        this.buyprice=p.getBuyprice();
+        this.prodname=p.getProdname();
+        this.proddisc=p.getProddisc();
+        this.color=p.getColor();
+        this.imageByte = p.getImageByte();
+    }
     //region Constructors
     public Product(String prodname,String proddisc,String color ,double saleprice,double buyprice,byte[] image){
         this.saleprice=saleprice;
@@ -115,6 +125,30 @@ public class Product implements SqlInterface {
         return c;
     }
 
+    public Cursor SelectById(SQLiteDatabase db,String id) {
+        String[] projection = {
+                BaseColumns._ID,
+                COLUMN_PRODUCT_NAME,
+                COLUMN_PRODUCT_DESCRIPTION,
+                COLUMN_PRODUCT_IMAGE,
+                COLUMN_PRODUCT_COLOR,
+                COLUMN_PRODUCT_SALEPRICE,
+                COLUMN_PRODUCT_BUYPRICE
+        };
+        String selection = BaseColumns._ID + " = ?";
+        String[] selectionArgs = {id};
+
+        Cursor c = db.query(
+                TABLE_PRODUCT,   // The table to query
+                projection,             // The array of columns to return (pass null to get all)
+                selection,              // The columns for the WHERE clause
+                selectionArgs,          // The values for the WHERE clause
+                null,                   // don't group the rows
+                null,                   // don't filter by row groups
+                null  );
+        return c;
+    }
+
     //endregion
 
     //region Setter and Getter
@@ -140,14 +174,6 @@ public class Product implements SqlInterface {
 
     public void setProddisc(String proddisc) {
         this.proddisc = proddisc;
-    }
-
-    public String getStock() {
-        return color;
-    }
-
-    public void setStock(String color) {
-        this.color = color;
     }
 
     public double getSaleprice() {

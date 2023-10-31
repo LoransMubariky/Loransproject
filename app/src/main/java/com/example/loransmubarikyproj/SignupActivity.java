@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Switch;
 import android.widget.TextView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -21,12 +22,18 @@ import com.google.firebase.auth.UserProfileChangeRequest;
 import org.w3c.dom.Text;
 
 public class SignupActivity extends AppCompatActivity {
-EditText fullNameEditText;
+
+    EditText admincode;
+    Button registerButton;
+
+    EditText fullNameEditText;
 EditText emailEditText;
 EditText passwordEditText;
 EditText repasswordEditText;
-Button registerButton;
 TextView errorText;
+    Switch isadmin;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +45,8 @@ TextView errorText;
         repasswordEditText=findViewById(R.id.ETrePasswordSignup);
         registerButton=findViewById(R.id.BTRegister);
         errorText=findViewById(R.id.errortext);
+        isadmin = findViewById(R.id.SwAdmin);
+        admincode = findViewById(R.id.etAdminCode);
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -72,6 +81,12 @@ TextView errorText;
             errorText.setText("password dosn't match");
             return;
         }
+        if(isadmin.isChecked() && !admincode.getText().toString().equals("13579")){
+            errorText.setVisibility(View.VISIBLE);
+            errorText.setText("admin code is incorrect");
+            return;
+        }
+
         final FirebaseAuth mAuth= FirebaseAuth.getInstance();
         mAuth.createUserWithEmailAndPassword(emailEditText.getText().toString(), passwordEditText.getText().toString())
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -80,9 +95,15 @@ TextView errorText;
                         if (task.isSuccessful()) {
 
                             FirebaseUser user = mAuth.getCurrentUser();
+                            String name=fullNameEditText.getText().toString();
+                            if(isadmin.isChecked()){
+                                name = "admin: "+name;
+                            }
 
-                            UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
-                                    .setDisplayName(fullNameEditText.getText().toString())
+
+
+                            UserProfileChangeRequest  profileUpdates = new UserProfileChangeRequest.Builder()
+                                    .setDisplayName(name)
                                     .build();
 
                             user.updateProfile(profileUpdates)

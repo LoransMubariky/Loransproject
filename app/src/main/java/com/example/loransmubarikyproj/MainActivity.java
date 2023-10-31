@@ -43,13 +43,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         navigationView.setNavigationItemSelectedListener(this);
         FirebaseUser user = fauth.getCurrentUser();
         if(user!=null){
-            View header = navigationView.getHeaderView(0);
-            username = header.findViewById(R.id.usernameheader);
-            email = header.findViewById(R.id.emailheader);
-            username.setText(user.getDisplayName());
-            email.setText(user.getEmail());
-        }
-        else {
+            if(user.getDisplayName().startsWith("admin:")){
+                Intent i = new Intent(MainActivity.this, AddProduct.class);
+                startActivity(i);
+            }
+
+            else {
             Intent i = new Intent(MainActivity.this, AddProduct.class);
             startActivity(i);
         }
@@ -64,12 +63,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             navigationView.setCheckedItem(R.id.nav_home);
         }
     }
-    @Override
-    protected void onResume() {
-
-        super.onResume();
-
     }
+
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         if(R.id.nav_home==item.getItemId()){
