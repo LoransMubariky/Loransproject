@@ -42,14 +42,20 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
         FirebaseUser user = fauth.getCurrentUser();
-        if(user!=null){
-            if(user.getDisplayName().startsWith("admin:")){
+        if(user!=null) {
+            if (user.getDisplayName().startsWith("admin:")) {
                 Intent i = new Intent(MainActivity.this, AddProduct.class);
                 startActivity(i);
             }
 
+            View header = navigationView.getHeaderView(0);
+            username = header.findViewById(R.id.usernameheader);
+            email = header.findViewById((R.id.emailheader));
+            username.setText(user.getDisplayName());
+            email.setText(user.getEmail());
+        }
             else {
-            Intent i = new Intent(MainActivity.this, AddProduct.class);
+            Intent i = new Intent(MainActivity.this, LoginActivity.class);
             startActivity(i);
         }
 
@@ -62,8 +68,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new HomeFragment()).commit();
             navigationView.setCheckedItem(R.id.nav_home);
         }
-    }
-    }
+     }
+
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
