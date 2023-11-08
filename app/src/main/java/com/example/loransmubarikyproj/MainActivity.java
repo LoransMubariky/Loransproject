@@ -15,6 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.loransmubarikyproj.Admin.AddProduct;
+import com.example.loransmubarikyproj.Admin.ShowProduct;
 import com.example.loransmubarikyproj.User.CartFragment;
 import com.example.loransmubarikyproj.User.HomeFragment;
 import com.example.loransmubarikyproj.User.InfoFragment;
@@ -44,7 +45,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         FirebaseUser user = fauth.getCurrentUser();
         if(user!=null) {
             if (user.getDisplayName().startsWith("admin:")) {
-                Intent i = new Intent(MainActivity.this, AddProduct.class);
+                Intent i = new Intent(MainActivity.this, ShowProduct.class);
                 startActivity(i);
             }
 

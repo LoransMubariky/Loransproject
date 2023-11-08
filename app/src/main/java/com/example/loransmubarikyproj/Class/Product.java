@@ -31,6 +31,7 @@ public class Product implements SqlInterface {
 
     }
     public Product(Product p){
+        pid = p.getPid();
         this.saleprice=p.getSaleprice();
         this.buyprice=p.getBuyprice();
         this.prodname=p.getProdname();
@@ -88,7 +89,7 @@ public class Product implements SqlInterface {
         values.put(COLUMN_PRODUCT_BUYPRICE, buyprice);
         values.put(COLUMN_PRODUCT_SALEPRICE, saleprice);
         values.put(COLUMN_PRODUCT_COLOR, color);
-        values.put(COLUMN_PRODUCT_IMAGE, imageByte.toString());
+        values.put(COLUMN_PRODUCT_IMAGE, imageByte);
 // Which row to update, based on the title
         String selection = BaseColumns._ID + " LIKE ?";
         String[] selectionArgs = { id+"" };
@@ -207,6 +208,8 @@ public class Product implements SqlInterface {
     public void setImageByte(byte[] imageByte) {
         this.imageByte = imageByte;
     }
+    @Override
+    public String toString(){return prodname; }
 
     //endregion
 }

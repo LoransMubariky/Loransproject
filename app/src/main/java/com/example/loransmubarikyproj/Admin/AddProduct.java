@@ -34,7 +34,7 @@ public class AddProduct extends AppCompatActivity implements View.OnClickListene
     EditText etname,etdisc,etcolor,etsaleprice,etbuyprice;
     ImageButton imageButton;
     Button btadd,btdelete,btupdate;
-    boolean SelectedNewImage = false;
+    boolean SelectedNewImage ;
     Product p;
     Uri selectedImageUri;
     String selectedId;
@@ -58,7 +58,7 @@ public class AddProduct extends AppCompatActivity implements View.OnClickListene
         btupdate.setOnClickListener(this);
         imageButton.setOnClickListener(this);
         dbHelper = new DBHelper(this);
-
+        SelectedNewImage = false;
         Intent i = getIntent();
         if (i.getStringExtra("Selected_Id") == null) {
             btdelete.setVisibility(View.GONE);
@@ -106,8 +106,8 @@ public class AddProduct extends AppCompatActivity implements View.OnClickListene
                 if(p.Add(dbHelper.getDb())>-1){
                     Toast.makeText(this, "Added Successfully", Toast.LENGTH_SHORT).show();
                     dbHelper.Close();
-                   // Intent i = new Intent(this,ShowProduct.class);
-                    //startActivity(i);
+                   Intent i = new Intent(this,ShowProduct.class);
+                    startActivity(i);
                 }
             }
             if(view.getId()==R.id.btUpdate){
@@ -125,16 +125,16 @@ public class AddProduct extends AppCompatActivity implements View.OnClickListene
                 p.Update(dbHelper.getDb(),Integer.parseInt(selectedId));
                 dbHelper.Close();
                 Toast.makeText(this, "Updated Successfully", Toast.LENGTH_SHORT).show();
-                //Intent i = new Intent(this,ShowProduct.class);
-                //startActivity(i);
+                Intent i = new Intent(this,ShowProduct.class);
+                startActivity(i);
             }
             if(view.getId()==R.id.btDelete){
                 dbHelper.OpenWriteAble();
                 p.Delete(dbHelper.getDb(),Integer.parseInt(selectedId));
                 dbHelper.Close();
                 Toast.makeText(this, "Deleted Successfully", Toast.LENGTH_SHORT).show();
-               // Intent i = new Intent(this,ShowProduct.class);
-                //startActivity(i);
+                Intent i = new Intent(this,ShowProduct.class);
+                startActivity(i);
             }
             if(view.getId()==R.id.imageButton){
                 Intent gallery = new Intent(Intent.ACTION_PICK,
