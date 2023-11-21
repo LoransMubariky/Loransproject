@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/light_gray"
     android:id="@+id/coordinatorLayout"
-    tools:context=".views.MainActivity">
+    tools:context=".User.HomeFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
@@ -35,7 +35,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="16dp"
-                    android:src="@drawable/ic_baseline_shopping_cart_24"
+                    android:src="@drawable/baseline_shopping_bag_24"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -49,7 +49,8 @@
                     android:textColor="#0DCEC8"
                     android:textSize="24sp"
                     app:layout_constraintEnd_toStartOf="@+id/cartIv"
-                    app:layout_constraintStart_toStartOf="parent" />
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </Toolbar>
 
