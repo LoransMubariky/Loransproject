@@ -32,7 +32,7 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.ViewHo
     }
 
     @Override
-    public ViewHolder onCreateViewHolder( ViewGroup parent, int i) {
+    public ViewHolder onCreateViewHolder(ViewGroup parent, int i) {
 
         View view = LayoutInflater.from(context).inflate(R.layout.listitem, parent, false);
         return new ViewHolder(view);
@@ -40,17 +40,17 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.ViewHo
     }
 
     @Override
-    public void onBindViewHolder( ViewHolder holder, int position) {
+    public void onBindViewHolder(ViewHolder holder, int position) {
 
         // here we will find the position and start setting the output on our views
 
         String nameofProduct = productList.get(position).getProdname();
         double salepriceofproduct = productList.get(position).getSaleprice();
         byte[] images = productList.get(position).getImageByte();
-        Bitmap bm = BitmapFactory.decodeByteArray(images, 0 ,images.length);
+        Bitmap bm = BitmapFactory.decodeByteArray(images, 0, images.length);
 
         holder.tvNameOfProduct.setText(nameofProduct);
-        holder.tvPriceOfProduct.setText(salepriceofproduct+"");
+        holder.tvPriceOfProduct.setText(salepriceofproduct + "");
         holder.imageOfProduct.setImageBitmap(bm);
 
     }
@@ -66,7 +66,7 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.ViewHo
         // here we will find the views on which we will inflate our data
 
         TextView tvNameOfProduct, tvPriceOfProduct;
-        ImageView imageOfProduct;
+        ImageView imageOfProduct, addtocart;
 
         public ViewHolder(View itemView) {
             super(itemView);
@@ -74,16 +74,21 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.ViewHo
             tvNameOfProduct = itemView.findViewById(R.id.eachWatchName);
             tvPriceOfProduct = itemView.findViewById(R.id.eachWatchPriceTv);
             imageOfProduct = itemView.findViewById(R.id.eachWatchPic);
+            addtocart = itemView.findViewById(R.id.eachWatchAddToCartBtn);
+            addtocart.setOnClickListener(this);
             itemView.setOnClickListener(this);
 
         }
 
         @Override
         public void onClick(View v) {
+            if (v.getId() == R.id.eachWatchAddToCartBtn) {
 
-            Intent intent = new Intent(v.getContext(),ProductInfo.class);
-            intent.putExtra("id",productList.get(getLayoutPosition()).getPid()+"");
-            v.getContext().startActivity(intent);
+            } else {
+                Intent intent = new Intent(v.getContext(), ProductInfo.class);
+                intent.putExtra("id", productList.get(getLayoutPosition()).getPid() + "");
+                v.getContext().startActivity(intent);
+            }
         }
     }
 }
