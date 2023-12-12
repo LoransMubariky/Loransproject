@@ -5,28 +5,26 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 
-import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.loransmubarikyproj.R;
-
+import com.example.loransmubarikyproj.User.ProductInfo;
 
 
 import java.util.List;
 
-public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.ViewHolder> {
+public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHolder> {
 
     List<Product> productList;
     Context context;
 
-    public ProductsAdapter(Context context, List<Product> productList) {
+    public ProductAdapter(Context context, List<Product> productList) {
         this.context = context;
         this.productList = productList;
     }
@@ -34,9 +32,8 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.ViewHo
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int i) {
 
-        View view = LayoutInflater.from(context).inflate(R.layout.listitem, parent, false);
+        View view = LayoutInflater.from(context).inflate(R.layout.each_watch_item, parent, false);
         return new ViewHolder(view);
-
     }
 
     @Override

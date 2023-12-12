@@ -15,7 +15,7 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.example.loransmubarikyproj.Class.Product;
-import com.example.loransmubarikyproj.Class.ProductsAdapter;
+import com.example.loransmubarikyproj.Class.ProductAdapter;
 import com.example.loransmubarikyproj.DataBase.DBHelper;
 import com.example.loransmubarikyproj.R;
 
@@ -27,7 +27,7 @@ public class HomeFragment extends Fragment {
 
     List<Product> productList;
     RecyclerView recyclerView;
-    ProductsAdapter mAdapter;
+    ProductAdapter mAdapter;
     DBHelper dbHelper;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -38,23 +38,24 @@ public class HomeFragment extends Fragment {
         productList = new ArrayList<>();
         dbHelper = new DBHelper(inflater.getContext());
         dbHelper = dbHelper.OpenReadAble();
-        Product p = new Product(),p2=new Product();
+        Product p = new Product();
         Cursor c = p.Select(dbHelper.getDb());
         c.moveToFirst();
         while(!c.isAfterLast()){
-            p2 = new Product(c.getInt(c.getColumnIndexOrThrow(_ID)),
-                    p.setPid(c.getInt(c.getColumnIndexOrThrow(BaseColumns._ID)));
+
+            p.setPid(c.getInt(c.getColumnIndexOrThrow(BaseColumns._ID)));
             p.setProdname(c.getString(c.getColumnIndexOrThrow(COLUMN_PRODUCT_NAME)));
             p.setProddisc(c.getString(c.getColumnIndexOrThrow(COLUMN_PRODUCT_DESCRIPTION)));
             p.setBuyprice(c.getDouble(c.getColumnIndexOrThrow(COLUMN_PRODUCT_BUYPRICE)));
             p.setSaleprice(c.getDouble(c.getColumnIndexOrThrow(COLUMN_PRODUCT_SALEPRICE)));
             p.setColor(c.getString(c.getColumnIndexOrThrow(COLUMN_PRODUCT_COLOR)));
             p.setImageByte(c.getBlob(c.getColumnIndexOrThrow(COLUMN_PRODUCT_IMAGE)));
-            productList.add(p2);
+            productList.add(p);
             c.moveToNext();
+            p=new Product();
         }
         // adapter
-        mAdapter = new ProductsAdapter(inflater.getContext(), productList);
+        mAdapter = new ProductAdapter(inflater.getContext(), productList);
         recyclerView.setAdapter(mAdapter);
         // Inflate the layout for this fragment
         return  view;

@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         drawerLayout = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-        FirebaseUser user = fauth.getCurrentUser();
+        /*FirebaseUser user = fauth.getCurrentUser();
         if(user!=null) {
             if (user.getDisplayName().startsWith("admin:")) {
                 Intent i = new Intent(MainActivity.this, ShowProduct.class);
@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             else {
             Intent i = new Intent(MainActivity.this, LoginActivity.class);
             startActivity(i);
-        }
+        }*/
 
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.open_nav,
                 R.string.close_nav);
