@@ -89,7 +89,9 @@ public class AddProduct extends AppCompatActivity implements View.OnClickListene
 
         }
 
-
+/*
+casting a bitmap bite
+ */
         @Override
         public void onClick(View view) {
             if(view.getId()==R.id.addButton){
