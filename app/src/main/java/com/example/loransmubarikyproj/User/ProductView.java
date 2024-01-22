@@ -1,38 +1,27 @@
-package com.example.nawalproj.UserPages;
+package com.example.loransmubarikyproj.User;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Intent;
 import android.os.Bundle;
 
-import com.example.loransmubarikyproj.Class.Favorite;
+
 import com.example.loransmubarikyproj.Class.Product;
 import com.example.loransmubarikyproj.Class.ProductAdapter;
 import com.example.loransmubarikyproj.DataBase.DBHelper;
-import com.example.loransmubarikyproj.User.LoginActivity;
-import com.example.loransmubarikyproj.User.SignupActivity;
+
 import com.example.loransmubarikyproj.R;
 import android.database.Cursor;
 import android.provider.BaseColumns;
-import android.view.View;
 import android.widget.ImageView;
 
 import java.util.ArrayList;
 import java.util.List;
-import com.example.loransmubarikyproj.Class.Product;
 
-import static com.example.loransmubarikyproj.DataBase.TablesString.ProductTable.COLUMN_PRODUCT_BUYPRICE;
-import static com.example.loransmubarikyproj.DataBase.TablesString.ProductTable.COLUMN_PRODUCT_CATEGORY;
-import static com.example.loransmubarikyproj.DataBase.TablesString.ProductTable.COLUMN_PRODUCT_DESCRIPTION;
-import static com.example.loransmubarikyproj.DataBase.TablesString.ProductTable.COLUMN_PRODUCT_IMAGE;
-import static com.example.loransmubarikyproj.DataBase.TablesString.ProductTable.COLUMN_PRODUCT_KARAT;
-import static com.example.loransmubarikyproj.DataBase.TablesString.ProductTable.COLUMN_PRODUCT_SALEPRICE;
-import static com.example.loransmubarikyproj.DataBase.TablesString.ProductTable.COLUMN_PRODUCT_STOCK;
-import static com.example.loransmubarikyproj.DataBase.TablesString.ProductTable.COLUMN_PRODUCT_TYPE;
-import static com.example.loransmubarikyproj.DataBase.TablesString.ProductTable.COLUMN_PRODUCT_YOP;
+import static com.example.loransmubarikyproj.DataBase.TablesString.ProductTable.*;
+
 
 public class ProductView extends AppCompatActivity {
 

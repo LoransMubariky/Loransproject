@@ -25,6 +25,8 @@ public class TablesString {
         public static final String TABLE_CART = "Cart";
         public static final String COLUMN_PRODUCT_ID = "PID";
         public static final String COLUMN_USER_ID = "UID";
+        public static final String COLUMN_AMOUNT = "amount";
+
 
     }
     //endregion

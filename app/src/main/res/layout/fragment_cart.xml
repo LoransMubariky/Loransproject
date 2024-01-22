@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:background="@drawable/backg3"
     android:layout_height="match_parent"
-    tools:context=".UserPages.CartFragment">
+    tools:context=".User.CartFragment">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/cartRecyclerView"

@@ -17,10 +17,10 @@ import android.widget.Toast;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.loransmubarikyproj.DataBase.DBHelper;
-import com.example.loransmubarikyproj.DataBase.TablesString;
+import com.example.loransmubarikyproj.DataBase.TablesString.ProductTable;
 import com.example.loransmubarikyproj.R;
 
-import com.example.loransmubarikyproj.UserPages.DetailedActivity;
+import com.example.loransmubarikyproj.User.ProductInfo;
 import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.ArrayList;
@@ -52,7 +52,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
     @Override
     public ViewHolder onCreateViewHolder( ViewGroup parent, int i) {
 
-        view = LayoutInflater.from(context).inflate(R.layout.each_cart_item, parent, false);
+        view = LayoutInflater.from(context).inflate(R.layout.eachcartitem, parent, false);
 
         return new ViewHolder(view);
 
@@ -70,9 +70,8 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
         Cursor c = p.SelectById(dbHelper.getDb(),pid);
         c.moveToFirst();
         if(c!=null){
-            max = c.getInt(c.getColumnIndexOrThrow(COLUMN_PRODUCT_STOCK));
-            String typeOfProduct = c.getString(c.getColumnIndexOrThrow(COLUMN_PRODUCT_TYPE));
-            int yop = c.getInt(c.getColumnIndexOrThrow(COLUMN_PRODUCT_YOP));
+
+            String typeOfProduct = c.getString(c.getColumnIndexOrThrow(COLUMN_PRODUCT_NAME));
             double price =c.getDouble(c.getColumnIndexOrThrow(COLUMN_PRODUCT_SALEPRICE));
             listprice.add(price);
             byte[] images = c.getBlob(c.getColumnIndexOrThrow(COLUMN_PRODUCT_IMAGE));
@@ -81,7 +80,6 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
             holder.totalprice.setText(sum + "$");
             holder.tvTypeOfProduct.setText(typeOfProduct);
             holder.tvJewelryPrice.setText(price+"");
-            holder.tvJewelryYOP.setText(yop+"");
             holder.imageOfProduct.setImageBitmap(bm);
             holder.tvAmount.setText(amount+"");
         }

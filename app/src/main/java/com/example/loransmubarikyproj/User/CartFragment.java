@@ -1,4 +1,4 @@
-package com.example.loransmubarikyproj.UserPages;
+package com.example.loransmubarikyproj.User;
 
 import android.database.Cursor;
 import android.os.Bundle;
