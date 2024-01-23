@@ -3,7 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="@drawable/backg3"
     android:layout_height="match_parent"
     tools:context=".User.CartFragment">
 
@@ -47,7 +46,7 @@
         android:id="@+id/cartFragmentCheckoutBtn"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="@color/pink"
+        android:background="@color/black"
         android:text="Checkout"
         android:textAllCaps="false"
         android:textColor="@color/black"
@@ -80,7 +79,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Your Order has been placed"
-                android:textColor="@color/green_color"
+                android:textColor="@color/white"
                 android:textSize="22sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"

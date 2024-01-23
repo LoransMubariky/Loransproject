@@ -1,4 +1,4 @@
-package com.example.loransmubarikyproj.Classes;
+package com.example.loransmubarikyproj.Class;
 
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;

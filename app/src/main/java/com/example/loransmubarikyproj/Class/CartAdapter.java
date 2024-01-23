@@ -39,14 +39,12 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
     int max ;
     double sum ;
     ViewHolder h;
-    List<Double> listprice;
 
     public CartAdapter(View v,Context context, List<Cart> cartList) {
         this.context = context;
         this.cartList = cartList;
         this.v = v;
         sum=0;
-        listprice = new ArrayList<>();
     }
 
     @Override
@@ -67,13 +65,12 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
         Product p = new Product();
         DBHelper dbHelper = new DBHelper(view.getContext());
         dbHelper.OpenReadAble();
-        Cursor c = p.SelectById(dbHelper.getDb(),pid);
+        Cursor c = p.SelectById(dbHelper.getDb(),pid+"");
         c.moveToFirst();
         if(c!=null){
 
             String typeOfProduct = c.getString(c.getColumnIndexOrThrow(COLUMN_PRODUCT_NAME));
             double price =c.getDouble(c.getColumnIndexOrThrow(COLUMN_PRODUCT_SALEPRICE));
-            listprice.add(price);
             byte[] images = c.getBlob(c.getColumnIndexOrThrow(COLUMN_PRODUCT_IMAGE));
             Bitmap bm = BitmapFactory.decodeByteArray(images, 0 ,images.length);
             sum+=price*amount;
