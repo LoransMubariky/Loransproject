@@ -36,7 +36,6 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
     View view,v;
     Context context;
     int i = 1;
-    int max ;
     double sum ;
     ViewHolder h;
 
@@ -135,11 +134,10 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
             plusquantity.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if(i<max){
                         tvAmount.setText(String.valueOf(++i));
                         sum+=Double.parseDouble(tvJewelryPrice.getText().toString());
                         totalprice.setText(sum + "$");
-                    }
+
                 }
             });
 
