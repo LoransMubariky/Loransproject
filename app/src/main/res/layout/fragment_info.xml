@@ -31,16 +31,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="194dp"
-        android:layout_height="97dp"
-        android:layout_marginTop="41dp"
-        android:src="@drawable/pablo"
-        app:layout_constraintEnd_toStartOf="@+id/textView5"
-        app:layout_constraintTop_toBottomOf="@+id/textView7" />
-
-    <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/imageView3"
         android:layout_width="170dp"
         android:layout_height="126dp"
         android:layout_marginTop="16dp"
@@ -57,7 +48,7 @@
         android:fontFamily="sans-serif-black"
         android:text="this is pablo, he is working in my factory for more than 20 years his job is to make sure that all of diamonds we get are real"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 
     <TextView
         android:id="@+id/textView7"
@@ -66,7 +57,7 @@
         android:layout_marginTop="34dp"
         android:layout_marginEnd="26dp"
         android:text="this is paolo, he make sure to clean the diamonds well before we start using them on watches"
-        app:layout_constraintEnd_toStartOf="@+id/imageView"
+        app:layout_constraintEnd_toStartOf="@+id/imageView3"
         app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
